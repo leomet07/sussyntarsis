@@ -45,9 +45,9 @@ int main() {
         while (last_ntarsisus != string::npos){
             nflags.push_back(last_ntarsisus); // flag it
             rem.insert(last_ntarsisus + 6);  // to remove the second s in ntarsisus
-            s.replace(last_ntarsisus, 9,"jjjjjjjjj"); // so the sus inside ntarsisus is not found later on
+            s.replace(last_ntarsisus, 8,"jjjjjjjj"); // so the sus inside ntarsisu is not found later on
 
-            last_ntarsisus = s.find("ntarsisus", last_ntarsisus + 9); // 9 bc natrsisus is 9 chars long
+            last_ntarsisus = s.find("ntarsisus", last_ntarsisus + 8); // 8 bc natrsisus is 9 chars long and u want to start with latest
         }
 
         
@@ -57,7 +57,7 @@ int main() {
         // find all occurences
         while (last_sus != string::npos){
             rem.insert(last_sus + 1); // to remove the u in sus
-            last_sus = s.find("sus", last_sus + 3); // 3 bc sus is 3 chars long
+            last_sus = s.find("sus", last_sus + 2); // 2 bc sus is 3 chars long and u want to start with latest
         }
         while (last_ntarsis != string::npos){
 
@@ -75,7 +75,7 @@ int main() {
                 rem.insert(last_ntarsis + 3);  // to remove the r in ntarsis
 
             } // else dont do anything bc it is already handled
-            last_ntarsis = s.find("ntarsis", last_ntarsis + 7); // 7 bc natrsis is 7 chars long
+            last_ntarsis = s.find("ntarsis", last_ntarsis + 6); // 6 bc natrsis is 7 chars long and u want to start with latest
         }
         
 
