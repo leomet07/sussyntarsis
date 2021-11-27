@@ -73,7 +73,6 @@ int main() {
             bool isAccounted = false;
             for (const auto &item : sflags) {
                 if (item == last_sus) {
-                    cout << "el is present in vector" << endl;
                     isAccounted = true;
                     break;
                 }
@@ -89,7 +88,6 @@ int main() {
             bool isAccounted = false;
             for (const auto &item : nflags) {
                 if (item == last_ntarsis) {
-                    cout << "el is present in vector" << endl;
                     isAccounted = true;
                     break;
                 }
