@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iterator>
 #include <set>
-
+#include <vector>
 
 using namespace std;
  
@@ -39,9 +39,11 @@ int main() {
         
         
         size_t last_ntarsisus = s.find("ntarsisus");
+        vector<size_t> nflags;
+
         // account for ntarsisus
         while (last_ntarsisus != string::npos){
-            
+            nflags.push_back(last_ntarsisus); // flag it
             rem.insert(last_ntarsisus + 6);  // to remove the second s in ntarsisus
             s.replace(last_ntarsisus, 9,"jjjjjjjjj"); // so the sus inside ntarsisus is not found later on
 
@@ -58,7 +60,21 @@ int main() {
             last_sus = s.find("sus", last_sus + 3); // 3 bc sus is 3 chars long
         }
         while (last_ntarsis != string::npos){
-            rem.insert(last_ntarsis + 6);  // to remove the last s in ntarsis
+
+            // check over the flags
+            bool isAccounted = false;
+            for (const auto &item : nflags) {
+                if (item == last_ntarsis) {
+                    cout << "el is present in vector" << endl;
+                    isAccounted = true;
+                    break;
+                }
+            }
+
+            if (!isAccounted){
+                rem.insert(last_ntarsis + 3);  // to remove the r in ntarsis
+
+            } // else dont do anything bc it is already handled
             last_ntarsis = s.find("ntarsis", last_ntarsis + 7); // 7 bc natrsis is 7 chars long
         }
         
